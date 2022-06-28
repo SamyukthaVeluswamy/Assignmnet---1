@@ -1,0 +1,76 @@
+package learning;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OrangeHRM_Assignment {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://opensource-demo.orangehrmlive.com/");
+		driver.manage().window().maximize();
+	
+		WebElement LoginUser = driver.findElementByName("txtUsername");
+		LoginUser.sendKeys("Admin");
+	
+	
+		WebElement Loginpassword =driver.findElementByName("txtPassword");
+		Loginpassword.sendKeys("admin123");
+	
+		WebElement Login = driver.findElementByName("Submit");
+		Login.click();
+		
+		WebElement Admin = driver.findElementByXPath("//*[@id='menu_admin_viewAdminModule']/b");
+		Admin.click();
+		
+		WebElement Add = driver.findElementByName("btnAdd");
+		Add.click();
+			
+		WebElement Empname = driver.findElementByName("systemUser[employeeName][empName]");
+		Empname.sendKeys("John Smith");
+		
+		
+		String username = "JSjohnSmiTH4";
+		
+		WebElement Uname = driver.findElementById("systemUser_userName");
+		Uname.sendKeys(username);
+		
+		WebElement Password = driver.findElementByName("systemUser[password]");
+		Password.sendKeys("ABC@JsJOHN@122!");
+		
+		WebElement ConfirmPassword = driver.findElementByName("systemUser[confirmPassword]");
+		ConfirmPassword.sendKeys("ABC@JsJOHN@122!");
+		
+		//Sleep for 500 milliseconds
+		try
+		{
+		    Thread.sleep(500);
+		}
+		catch(InterruptedException ex)
+		{
+		    Thread.currentThread().interrupt();
+		}
+		
+	    WebElement Save_Button = driver.findElementById("btnSave");
+	    Save_Button.click();
+	    
+	    //Sleep for 500 milliseconds
+  		try
+  		{
+  		    Thread.sleep(500);
+  		}
+  		catch(InterruptedException ex)
+  		{
+  		    Thread.currentThread().interrupt();
+  		}
+	    
+	    WebElement search = driver.findElementByXPath("//*[@id=\'searchSystemUser_userName\']");
+		search.sendKeys(username);
+				
+	    WebElement Searchbtn = driver.findElementByXPath("//*[@id=\'searchBtn\']");
+	    Searchbtn.click();
+	}
+
+}
