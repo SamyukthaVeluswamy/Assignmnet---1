@@ -1,0 +1,117 @@
+package learning;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class Assignment_Airline {
+public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://phptravels.net/flights/");
+		driver.manage().window().maximize();
+		
+
+		WebElement Departure = driver.findElementByName("from");
+		Departure.click();
+		Departure.sendKeys("DEL - Indira Gandhi Intl - Delhi");
+		
+		
+		WebElement Arrival = driver.findElementByXPath("//*[@id=\'autocomplete2\']");
+		Arrival.click();
+		Arrival.sendKeys("MAA - Chennai Intl - Madras");
+		
+	
+		WebElement search = driver.findElementByXPath("//*[@id=\'flights-search\']/span[1]");
+		search.click();
+	
+  		try
+  		{
+  		    Thread.sleep(300);
+  		}
+  		catch(InterruptedException ex)
+  		{
+  		    Thread.currentThread().interrupt();
+  		}
+	    
+		WebElement flightstop = driver.findElementByXPath("//*[@id='direct']");
+		flightstop.click();
+		
+		try
+  		{
+  		    Thread.sleep(1000);
+  		}
+  		catch(InterruptedException ex)
+  		{
+  		    Thread.currentThread().interrupt();
+  		}
+	    
+		WebElement Airline1 = driver.findElementByXPath("//*[@id=\'data\']/ul/li[1]/div/form/div/div[2]/div/button");
+		Airline1.click();
+		
+		try
+  		{
+  		    Thread.sleep(1000);
+  		}
+  		catch(InterruptedException ex)
+  		{
+  		    Thread.currentThread().interrupt();
+  		}
+	    
+		
+		WebElement Airline2 = driver.findElementByXPath("//*[@id=\'fadein\']/div/form/div[2]/div/div/div/fieldset/div/ul/li[3]/div/label");
+		Airline2.click();
+		
+		try
+  		{
+  		    Thread.sleep(1000);
+  		}
+  		catch(InterruptedException ex)
+  		{
+  		    Thread.currentThread().interrupt();
+  		}
+	    
+		WebElement Book = driver.findElementByXPath("//*[@id='data']/ul/li[3]/div/form/div/div[2]/div/button");
+		Book.click();
+
+		
+		try
+  		{
+  		    Thread.sleep(2000);
+  		}
+  		catch(InterruptedException ex)
+  		{
+  		    Thread.currentThread().interrupt();
+  		}
+		
+		
+		WebElement FirstName = driver.findElementByName("firstname");
+		FirstName.sendKeys("Sam");
+		
+		WebElement LastName = driver.findElementByName("lastname");
+		LastName.sendKeys("v");
+		
+		
+		WebElement email = driver.findElementByName("email");
+		email.sendKeys("123@yahoo.com");
+		
+		WebElement phone = driver.findElementByName("phone");
+		phone.sendKeys("1122334455");
+		
+		WebElement address = driver.findElementByName("address");
+		address.sendKeys("123 , RK st , cbe-654909");
+		
+		try
+  		{
+  		    Thread.sleep(3000);
+  		}
+  		catch(InterruptedException ex)
+  		{
+  		    Thread.currentThread().interrupt();
+  		}
+		
+		WebElement Terms = driver.findElementByXPath("//*[@id='fadein']/div[2]/form/section/div/div/div[1]/div[4]/div/div/div/label");
+		
+		Terms.click();
+			
+		
+		
+	}}
